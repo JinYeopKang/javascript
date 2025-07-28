@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>주문 처리 시나리오</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+         <h1>고객 주문 처리 프로그램</h1>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="products">
+                <div class="product" data-stock="10" data-price="25000">
+                    <img src="img/shirts.jpg" alt="티셔츠" width="200" height="200">
+                    <h3>티셔츠</h3>
+                    <p>가격: 25,000원</p>
+                    <p>재고: <span class="stock">10</span>개</p>
+                    <button onclick="addToCart('티셔츠', 25000, 10)">장바구니 담기</button>
+                </div>
+            </div>
+        </section>
+    <input id="myinput" onkeyup="showValue()" />
+    <div id="output"></div>
+    <script src="script.js"></script>
+    </main>
+    <form class="order-form" id="orderForm" onsubmit="return false;">
+    <label for="inventory">상품 재고 수량</label>
+    <input type="number" id="inventory" min="0" required placeholder="예) 7">
+
+    <label for="memberGrade">회원 등급</label>
+    <select id="memberGrade" required>
+      <option value="">선택</option>
+      <option value="VIP">VIP</option>
+      <option value="Gold">Gold</option>
+      <option value="Normal">Normal</option>
+    </select>
+
+    <label for="orderAmount">최초 주문 금액 (원)</label>
+    <input type="number" id="orderAmount" min="0" required placeholder="예) 195000">
+
+    <label for="deliveryOption">배송 옵션</label>
+    <select id="deliveryOption">
+      <option value="standard">일반 배송</option>
+      <option value="fast">빠른 배송</option>
+    </select>
+    
+    <button type="button" onclick="handleOrder()">주문 처리</button>
+  </form>
+  
+</body>
+</html>
